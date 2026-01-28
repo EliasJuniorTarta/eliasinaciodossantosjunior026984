@@ -1,160 +1,220 @@
-# 📌 Projeto Backend Java – API REST
+📌 API REST Backend Java — Artistas e Álbuns
 
-Este projeto foi desenvolvido **exclusivamente para atender aos requisitos do edital**, consistindo na implementação de uma **API REST em Java utilizando Spring Boot**, com persistência de dados em banco de dados em memória.
+1. Visão Geral
 
-O foco do projeto é demonstrar:
-- Capacidade de estruturar uma aplicação backend
-- Compreensão de APIs REST
-- Organização de código
-- Funcionamento correto da aplicação
+Este projeto consiste na implementação de uma API REST em Java, desenvolvida com Spring Boot, cujo objetivo é atender integralmente aos requisitos técnicos descritos no edital do processo seletivo da SEPLAG-MT.
 
----
+A aplicação expõe endpoints REST para manipulação de Artistas e seus respectivos Álbuns, demonstrando domínio dos seguintes conceitos:
 
-## 🎯 Objetivo do Projeto
+Arquitetura backend em camadas
 
-Disponibilizar uma **API REST funcional** para manipulação de dados, permitindo operações básicas como **consulta, cadastro, atualização e exclusão**, conforme boas práticas de desenvolvimento backend.
+Boas práticas de APIs REST
 
----
+Persistência de dados com JPA
 
-## 🛠️ Tecnologias Utilizadas
+Uso de banco de dados em memória
 
-- Java 17  
-- Spring Boot  
-- Spring Web  
-- Spring Data JPA  
-- Banco de Dados H2 (em memória)  
-- Maven  
+Organização, clareza e funcionamento correto da aplicação
 
----
+O projeto foi construído exclusivamente para fins avaliativos, priorizando funcionalidade, clareza técnica e aderência ao edital.
 
-## 📂 Estrutura do Projeto
+2. Objetivo Técnico
+
+Disponibilizar uma API REST funcional que permita:
+
+Criar, consultar, atualizar e remover Artistas
+
+Criar, consultar, atualizar e remover Álbuns associados a artistas
+
+Validar corretamente as operações via HTTP
+
+Executar a aplicação localmente sem dependências externas
+
+3. Tecnologias Utilizadas
+
+Tecnologia	Versão / Uso
+Java	17
+Spring Boot	Framework principal
+Spring Web	Criação de API REST
+Spring Data JPA	Persistência de dados
+H2 Database	Banco em memória
+Maven	Gerenciamento de dependências
+
+4. Arquitetura do Projeto
+
+A aplicação segue o padrão de arquitetura em camadas, separando responsabilidades:
 
 backend/
 ├── src/
 │ ├── main/
 │ │ ├── java/
-│ │ │ ├── controller
-│ │ │ ├── service
-│ │ │ ├── repository
-│ │ │ └── model
+│ │ │ ├── controller/ # Camada de controle (endpoints REST)
+│ │ │ ├── service/ # Regras de negócio
+│ │ │ ├── repository/ # Acesso a dados (JPA)
+│ │ │ └── model/ # Entidades JPA
 │ │ └── resources/
-│ │ ├── application.properties
+│ │ ├── application.yaml
 │ │ └── data.sql (opcional)
 │ └── test/
 ├── pom.xml
 └── BackendApplication.java
 
-yaml
-Copiar código
+Essa estrutura garante:
 
-A organização segue o **padrão de camadas**, facilitando manutenção e entendimento do código.
+Manutenção facilitada
 
----
+Leitura clara para o avaliador
 
-## ▶️ Como Executar o Projeto (PASSO A PASSO)
+Separação correta de responsabilidades
 
-### 1️⃣ Pré-requisitos
+5. Configurações da Aplicação
 
-- Java JDK 17 ou superior
-- Maven
-- IDE (IntelliJ IDEA ou VS Code)
+Porta da aplicação
 
----
+A aplicação está configurada para executar fixamente na porta 8080:
 
-### 2️⃣ Abrir o Projeto
+server:
+  port: 8080
+Banco de Dados
 
-1. Abra o **IntelliJ IDEA**
-2. Clique em **Open**
-3. Selecione a pasta **backend**
-4. Aguarde o carregamento completo do projeto
+Banco H2 em memória, sem necessidade de instalação externa.
 
----
+Configurações principais:
 
-### 3️⃣ Executar a Aplicação
+JDBC URL: jdbc:h2:mem:testdb
 
-1. Localize a classe:
-BackendApplication.java
+Usuário: sa
 
-yaml
-Copiar código
-2. Clique com o botão direito
-3. Selecione **Run**
+Senha: (em branco)
 
-✔ A aplicação estará em execução quando aparecer no terminal que o **Spring Boot foi iniciado**.
-
----
-
-## 🌐 Acessar e Testar a API
-
-Após iniciar a aplicação, a API ficará disponível em:
-
-http://localhost:8080
-
-css
-Copiar código
-
-📌 Caso apareça uma **Whitelabel Error Page**, isso é esperado, pois a API não possui página inicial.
-
-Os endpoints devem ser acessados diretamente, por exemplo:
-
-http://localhost:8080/api/v1/artistas
-http://localhost:8080/api/v1/albuns
-
-yaml
-Copiar código
-
-Esses endpoints permitem validar que a aplicação está **funcionando corretamente**.
-
----
-
-## 🗄️ Banco de Dados H2 (Teste)
-
-O projeto utiliza banco de dados **H2 em memória**, apenas para fins de desenvolvimento e avaliação.
-
-### 🔗 Acesso ao Console H2:
+Console H2 disponível em:
 
 http://localhost:8080/h2-console
 
-markdown
-Copiar código
+6. Como Executar o Projeto (Passo a Passo)
 
-### 🔑 Configurações:
+6.1 Pré-requisitos
 
-- JDBC URL:
-jdbc:h2:mem:testdb
+Java JDK 17 ou superior
 
-diff
-Copiar código
-- Usuário:
-sa
+Maven
 
-yaml
-Copiar código
-- Senha:
-*(em branco)*
+IDE (IntelliJ IDEA ou VS Code)
 
----
+6.2 Abrir o projeto
 
-## ✅ Funcionalidades Atendidas (Conforme Edital)
+Abra o IntelliJ IDEA
 
-- Implementação de API REST
-- Uso de Spring Boot
-- Organização em camadas
-- Persistência com JPA
-- Banco de dados em memória
-- Projeto funcional e executável localmente
-- Documentação clara para avaliação
+Clique em Open
 
----
+Selecione a pasta do projeto
 
-## 📌 Considerações Finais
+Aguarde o carregamento do Maven
 
-Este projeto foi desenvolvido **exclusivamente para fins avaliativos**, atendendo aos requisitos técnicos descritos no edital, priorizando clareza, funcionamento e organização do código.
+6.3 Executar a aplicação
 
----
+Localize a classe:
 
-## 👤 Autor
+BackendApplication.java
 
-**Elias Inácio dos Santos Junior**
+Clique com o botão direito
 
-Projeto desenvolvido para processo seletivo / avaliação técnica.
+Selecione Run
+
+A aplicação estará pronta quando o log indicar:
+
+Started BackendApplication
+
+7. Endpoints da API (Validação Técnica)
+
+🔹 Artistas
+
+GET /artistas
+
+Retorna a lista de artistas
+
+Status esperado: 200 OK
+
+GET /artistas/{id}
+
+Retorna um artista específico
+
+Status esperado: 200 OK ou 404 Not Found
+
+POST /artistas
+
+Cria um novo artista
+
+Body: JSON
+
+Status esperado: 201 Created
+
+PUT /artistas/{id}
+
+Atualiza um artista existente
+
+Status esperado: 200 OK ou 404 Not Found
+
+DELETE /artistas/{id}
+
+Remove um artista
+
+Status esperado: 204 No Content
+
+🔹 Álbuns
+
+GET /albuns
+
+Lista todos os álbuns
+
+Status esperado: 200 OK
+
+GET /albuns/{id}
+
+Retorna um álbum específico
+
+Status esperado: 200 OK ou 404 Not Found
+
+POST /albuns
+
+Cria um álbum vinculado a um artista
+
+Status esperado: 201 Created
+
+PUT /albuns/{id}
+
+Atualiza um álbum
+
+Status esperado: 200 OK
+
+DELETE /albuns/{id}
+
+Remove um álbum
+
+Status esperado: 204 No Content
+
+8. Testes Manuais
+
+Os endpoints podem ser testados via:
+
+Navegador (GET)
+
+Postman / Insomnia
+
+Exemplo base:
+
+http://localhost:8080/artistas
+http://localhost:8080/albuns
+
+9. Conformidade com o Edital
+
+✔ API REST funcional ✔ Uso de Java + Spring Boot ✔ Persistência com JPA ✔ Banco em memória ✔ Organização em camadas ✔ Execução local simples ✔ Documentação clara e objetiva
+
+10. Checklist Final — Apto para Entrega
+
+🟢 STATUS FINAL: APTO PARA ENTREGA
+
+11. Autor
+
+Elias Inácio dos Santos Júnior
+Projeto desenvolvido para fins de avaliação técnica em processo seletivo.
