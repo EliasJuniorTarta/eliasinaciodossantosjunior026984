@@ -5,7 +5,7 @@ CREATE TABLE artista (
 
 CREATE TABLE album (
                        id BIGINT PRIMARY KEY AUTO_INCREMENT,
-                       nome VARCHAR(200) NOT NULL
+                       titulo VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE artista_album (
@@ -22,14 +22,14 @@ INSERT INTO artista (nome) VALUES
                                ('Michel Teló'),
                                ('Guns N'' Roses');
 
-INSERT INTO album (nome) VALUES
-                             ('Harakiri'),
-                             ('Black Blooms'),
-                             ('The Rising Tied'),
-                             ('Post Traumatic'),
-                             ('Bem Sertanejo'),
-                             ('Use Your Illusion I'),
-                             ('Use Your Illusion II');
+INSERT INTO album (titulo) VALUES
+                               ('Harakiri'),
+                               ('Black Blooms'),
+                               ('The Rising Tied'),
+                               ('Post Traumatic'),
+                               ('Bem Sertanejo'),
+                               ('Use Your Illusion I'),
+                               ('Use Your Illusion II');
 
 INSERT INTO artista_album VALUES
                               (1,1),(1,2),
